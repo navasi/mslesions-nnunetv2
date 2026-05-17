@@ -1,0 +1,15 @@
+{
+    "channel_names": {
+        "0": "FLAIR_baseline",
+        "1": "T1_baseline",
+        "2": "FLAIR_followup",
+        "3": "T1_followup"
+    },
+    "labels": {
+        "background": 0,
+        "lesion": 1,
+        "new_lesion": 2
+    },
+    "numTraining": 349,
+    "file_ending": ".nii"
+}

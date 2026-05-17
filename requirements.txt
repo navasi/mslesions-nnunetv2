@@ -1,0 +1,6 @@
+nnunetv2
+nibabel
+matplotlib
+numpy
+pandas
+torch

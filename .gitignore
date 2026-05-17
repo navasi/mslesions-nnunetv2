@@ -1,0 +1,16 @@
+
+*.pth
+*.pt
+*.pkl
+
+nnUNet_raw/
+nnUNet_preprocessed/
+nnUNet_results/
+msseg2_input/
+msseg2_predictions/
+*.nii
+*.nii.gz
+
+.ipynb_checkpoints/
+__pycache__/
+kaggle.json
