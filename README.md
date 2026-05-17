@@ -32,3 +32,10 @@ Every file present in this workspace serves a strict operational role in the ope
 * **`msseg2_dice.csv`**: A fully transparent, row-by-row table listing the precise computed Dice Similarity Coefficient for every external subject evaluated.
 * **`summary.json`**: The standardized output file generated at the end of validation training splits, containing a complete statistical breakdown of segmentation metrics across all evaluated subjects. It groups results into macro-averages (global Mean, Median, 25th, and 75th percentiles) and micro-entries (storing individual metrics like **Dice Similarity Coefficient** and **Jaccard Index** case-by-case for each clinical class, such as background vs. lesion).
 * **`training_log_2026_5_10_16_55_11.txt`**: The raw terminal output dump recorded from the GPU execution stream during the external validation process.
+
+## Detached Binary Weights Access
+
+Due to GitHub's 100 MB file size limit, the heavy model parameters cannot be saved directly into the main repository branch. 
+To run inference, download the **`checkpoint_best.pth`** file directly from the official release link below:
+
+[Download checkpoint_best.pth (v1.0.0)](https://github.com/navasi/mslesions-nnunetv2/releases/download/v1.0.0/checkpoint_best.pth)
