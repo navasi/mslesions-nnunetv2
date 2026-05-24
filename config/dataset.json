@@ -7,8 +7,9 @@
     },
     "labels": {
         "background": 0,
-        "lesion": 1,
-        "new_lesion": 2
+        "stable_lesions": 1,
+        "new_lesions": 2,
+        "growing_lesions": 3
     },
     "numTraining": 349,
     "file_ending": ".nii"

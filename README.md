@@ -31,7 +31,7 @@ Every file present in this workspace serves a strict operational role in the ope
 * **`debug.json`**: A log of the exact computational environment and parameters used when launching a command.
 * **`msseg2_dice.csv`**: A fully transparent, row-by-row table listing the precise computed Dice Similarity Coefficient for every external subject evaluated.
 * **`summary.json`**: The standardized output file generated at the end of validation training splits, containing a complete statistical breakdown of segmentation metrics across all evaluated subjects. It groups results into macro-averages (global Mean, Median, 25th, and 75th percentiles) and micro-entries (storing individual metrics like **Dice Similarity Coefficient** and **Jaccard Index** case-by-case for each clinical class, such as background vs. lesion).
-* **`training_log_2026_5_10_16_55_11.txt`**: The raw terminal output dump recorded from the GPU execution stream during the external validation process.
+* **`training_log_2026_5_22_17_31_55.txt`**: The raw terminal output dump recorded from the GPU execution stream during the external validation process.
 
 ## Detached Binary Weights Access
 
