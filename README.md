@@ -3,15 +3,20 @@
 This repository contains the code and methodology used in my Master’s Thesis for Multiple Sclerosis lesion segmentation using the **nnU-Net v2** architecture.
 
 ## Project Overview
-The main objective is the detection of new lesions in magnetic resonance imaging (MRI) using a multimodal approach. The model was originally trained with **FLAIR and T1** sequences, achieving a **Foreground Mean Dice Score of 0.6848** on internal validation.
+The primary objective of this project is the automated longitudinal tracking and multi-class segmentation of Multiple Sclerosis (MS) lesions in magnetic resonance imaging (MRI). Utilizing a multi-channel 3D nnU-Net v2 framework, the system integrates concurrent spatial and temporal features from paired baseline ($t_1$) and follow-up ($t_2$) studies. 
 
-## External Validation (MSSEG-2 Dataset)
-As a robustness test, the model was evaluated using the **MSSEG-2 (MICCAI 2021)** challenge dataset.
+The model relies on a 4-channel input configuration per subject (FLAIR $t_1$, T1 $t_1$, FLAIR $t_2$, T1 $t_2$). On the internal validation cohort, the pipeline achieved a mean Dice Similarity Coefficient (DSC) of **81.49% for Class 1** (Total Lesion) and **59.91% for Class 2** (New Lesions).
 
-### The Domain Shift Challenge
-Since the external dataset lacked T1 sequences (required by the original model), a **Channel Cloning** strategy was implemented by duplicating the FLAIR sequence to emulate the missing channels.
+## External Validation (MSLesSeg Dataset)
+To evaluate the clinical translation and robustness of the frozen model under a zero-shot paradigm, external validation was conducted using the **MSLesSeg** longitudinal dataset. 
 
-- **Results:** A significant drop in performance metrics was observed (mean Dice ~0.04), documenting the model’s strong dependence on multimodal information and highlighting the challenge posed by *Domain Shift* in real clinical environments.
+### Domain Shift and Structural Constraints
+The external cohort represents an unconstrained clinical environment where images did not undergo standardized preprocessing, intensity normalization, or bias field correction. Testing the architecture under these conditions highlighted two distinct performance behaviors based on lesion characteristics:
+
+* **Class 1:** The model achieved a mean Dice score of **46.16%**. This outcome demonstrates a baseline capacity to locate chronic periventricular plaque structures across different centers, though boundary delineation accuracy was reduced due to vendor-specific intensity variations.
+* **Class 2:** The model yielded a global mean Dice score of **6.00%**. This limitation is associated with extreme structural sparsity and sub-voxel registration variations between the two timepoints. For millimeter-scale active structures consisting of few voxels, minor spatial misalignments mathematically penalize the spatial intersection toward zero when prior coregistration pipelines are omitted.
+
+Conversely, performance remained volume-dependent. In high-activity subjects presenting larger active lesion profiles—such as Patient P50 (**68.00%**) and Patient P8 (**49.90%**)—the temporal contrast signatures successfully exceeded the network's internal activation thresholds despite the raw scanner noise.
 
 ## Installation and Usage
 
